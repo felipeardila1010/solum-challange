@@ -16,6 +16,7 @@
 venv/
 .env
 __pycache__
+pnpm-lock.yaml
 
 # production
 /build
