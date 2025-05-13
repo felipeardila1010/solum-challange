@@ -16,7 +16,7 @@ import {
   CardTitle
 } from '@/components/ui/card';
 import { Call } from './call';
-import { SelectCall } from '@/lib/db';
+import { SelectCall } from '@/lib/calls-http';
 import { useRouter } from 'next/navigation';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';

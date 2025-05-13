@@ -29,14 +29,13 @@ export async function getCalls(
   newOffset: number | null;
   totalCalls: number;
 }> {
-
-  if (offset === null) {
+  if (offset === null && search === '') {
     return { calls: [], newOffset: null, totalCalls: 0 };
   }
 
   const url = new URL('http://127.0.0.1:8000/api/calls');
-  //url.searchParams.append('search', search);
   url.searchParams.append('offset', offset.toString());
+  url.searchParams.append('search', search);
   const response = await fetch(url.toString());
 
   if (!response.ok) {

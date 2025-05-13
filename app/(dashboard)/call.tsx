@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { MoreHorizontal } from 'lucide-react';
 import { TableCell, TableRow } from '@/components/ui/table';
-import { SelectCall } from '@/lib/db';
+import { SelectCall } from '@/lib/calls-http';
 import { deleteCall } from './actions';
 
 export function Call({ call }: { call: SelectCall }) {

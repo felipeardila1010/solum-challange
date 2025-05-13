@@ -2,7 +2,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { File } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { CallsTable } from './calls-table';
-import { getCalls } from '@/lib/db';
+import { getCalls } from '@/lib/calls-http';
 
 export default async function CallsPage(
   props: {

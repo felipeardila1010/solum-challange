@@ -1,16 +1,22 @@
+from typing import Optional
 from fastapi import APIRouter, Query
 from api.services.google_sheets_service import GoogleSheetsService
 
 router = APIRouter()
 google_sheets_service = GoogleSheetsService()
+sheetName = "Copy of Technical Challenge Solum Health"
 
 @router.get("/api/calls")
 async def get_calls(
     offset: int = Query(0, ge=0),  # Default offset is 0, must be >= 0
-    limit: int = Query(10, gt=0)  # Default limit is 10, must be > 0
+    limit: int = Query(10, gt=0),  # Default limit is 10, must be > 0
+    search: Optional[str] = Query(None)  # Optional search parameter for filtering by call_id
 ):
-    sheetName = "Copy of Technical Challenge Solum Health"
-    data = google_sheets_service.get_sheet_data(sheetName)
+    data = google_sheets_service.get_sheet_data(sheetName)  # Fetch all data from Google Sheets
+
+    # Apply search filter if search parameter is provided
+    if search:
+        data = [record for record in data if search.lower() in record.get("call_id", "").lower()]
 
     # Apply pagination
     paginated_data = data[offset:offset + limit]
