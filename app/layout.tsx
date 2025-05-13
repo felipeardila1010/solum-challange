@@ -1,43 +1,22 @@
-import "./globals.css";
-import { GeistSans } from "geist/font/sans";
-import { Toaster } from "sonner";
-import { cn } from "@/lib/utils";
-import { Navbar } from "@/components/navbar";
+import './globals.css';
+
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata = {
-  title: "AI SDK Python Streaming Preview",
+  title: 'Next.js App Router + NextAuth + Tailwind CSS',
   description:
-    "Use the Data Stream Protocol to stream chat completions from a Python endpoint (FastAPI) and display them using the useChat hook in your Next.js application.",
-  openGraph: {
-    images: [
-      {
-        url: "/og?title=AI SDK Python Streaming Preview",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    images: [
-      {
-        url: "/og?title=AI SDK Python Streaming Preview",
-      },
-    ],
-  },
+    'A user admin dashboard configured with Next.js, Postgres, NextAuth, Tailwind CSS, TypeScript, and Prettier.'
 };
 
 export default function RootLayout({
-  children,
+  children
 }: {
   children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <head></head>
-      <body className={cn(GeistSans.className, "antialiased dark")}>
-        <Toaster position="top-center" richColors />
-        <Navbar />
-        {children}
-      </body>
+      <body className="flex min-h-screen w-full flex-col">{children}</body>
+      <Analytics />
     </html>
   );
 }
