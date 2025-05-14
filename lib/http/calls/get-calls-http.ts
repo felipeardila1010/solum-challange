@@ -1,4 +1,4 @@
-//import 'server-only';
+import 'server-only';
 
 export const statusEnum = ['active', 'inactive', 'archived'] as const;
 export type StatusEnum = typeof statusEnum[number];
@@ -33,7 +33,7 @@ export async function getCalls(
     return { calls: [], newOffset: null, totalCalls: 0 };
   }
 
-  const endpoint = `/api/calls?offset=${encodeURIComponent(
+  const endpoint = `${process.env.BACKEND_HOST}/api/calls?offset=${encodeURIComponent(
     offset.toString()
   )}&search=${encodeURIComponent(search)}`;
 
