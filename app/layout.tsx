@@ -8,6 +8,9 @@ export const metadata = {
     'A user admin dashboard configured with Next.js, Postgres, NextAuth, Tailwind CSS, TypeScript, and Prettier.'
 };
 
+console.log("hello-main:", process.env.NEXT_PUBLIC_API_URL, process.env.NODE_ENV);
+
+
 export default function RootLayout({
   children
 }: {
