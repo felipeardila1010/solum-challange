@@ -50,13 +50,3 @@ export async function getCalls(
     totalCalls: data.totalCalls,
   };
 }
-
-export async function deleteCallById(id: number): Promise<void> {
-  const response = await fetch(`http://127.0.0.1:8000/api/calls/${id}`, {
-    method: 'DELETE',
-  });
-
-  if (!response.ok) {
-    throw new Error(`Failed to delete call with ID ${id}: ${response.statusText}`);
-  }
-}
