@@ -7,7 +7,7 @@ export interface PutCall {
 
 export async function putCall(data: PutCall): Promise<Response> {
 try {
-    console.log("hello:", process.env.NEXT_PUBLIC_API_URL);
+    console.log("hello:", process.env.NEXT_PUBLIC_API_URL, process.env.NODE_ENV);
     const response = await fetch(`http://127.0.0.1:8000/api/calls/${data.call_id}`, {
     method: "PUT",
     headers: {

@@ -33,7 +33,7 @@ export async function getCalls(
     return { calls: [], newOffset: null, totalCalls: 0 };
   }
 
-  console.log("hello:", process.env.NEXT_PUBLIC_API_URL);
+  console.log("hello:", process.env.NEXT_PUBLIC_API_URL, process.env.NODE_ENV);
   const url = new URL('http://127.0.0.1:8000/api/calls');
   url.searchParams.append('offset', offset.toString());
   url.searchParams.append('search', search);
