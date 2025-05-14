@@ -1,4 +1,4 @@
-import 'server-only';
+//import 'server-only';
 
 export const statusEnum = ['active', 'inactive', 'archived'] as const;
 export type StatusEnum = typeof statusEnum[number];
@@ -33,6 +33,7 @@ export async function getCalls(
     return { calls: [], newOffset: null, totalCalls: 0 };
   }
 
+  console.log("hello:", process.env.NEXT_PUBLIC_API_URL);
   const url = new URL('http://127.0.0.1:8000/api/calls');
   url.searchParams.append('offset', offset.toString());
   url.searchParams.append('search', search);
