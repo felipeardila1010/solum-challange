@@ -1,41 +1,127 @@
-# AI SDK Python Streaming Preview
+# Solum Challenge: Call Evaluation Dashboard
 
-This template demonstrates the usage of [Data Stream Protocol](https://sdk.vercel.ai/docs/ai-sdk-ui/stream-protocol#data-stream-protocol) to stream chat completions from a Python endpoint ([FastAPI](https://fastapi.tiangolo.com)) and display them using the [useChat](https://sdk.vercel.ai/docs/ai-sdk-ui/chatbot#chatbot) hook in your Next.js application.
+This project is a web application designed to help QA teams evaluate and track call performance. It integrates a **Next.js frontend** with a **FastAPI backend** to provide a seamless experience for managing and analyzing call data.
 
-## Deploy your own
+## Features
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel-labs%2Fai-sdk-preview-python-streaming&env=OPENAI_API_KEY&envDescription=API%20keys%20needed%20for%20application&envLink=https%3A%2F%2Fgithub.com%2Fvercel-labs%2Fai-sdk-preview-python-streaming%2Fblob%2Fmain%2F.env.example)
+1. **Call Display**:
+   - Clean and intuitive interface to display call details.
+   - Includes key information such as call duration, start time, and recording URL.
 
-## How to use
+2. **Call Evaluation**:
+   - Allows QA teams to listen to calls and provide evaluations.
+   - Displays LLM (Large Language Model) evaluations alongside human evaluations (if available).
 
-Run [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+3. **Performance Dashboard**:
+   - A dashboard to track agent performance over time.
+   - Metrics can be broken down by agent, company, or other relevant categories.
 
-```bash
-npx create-next-app --example https://github.com/vercel-labs/ai-sdk-preview-python-streaming ai-sdk-preview-python-streaming-example
-```
+4. **Custom Metrics**:
+   - Proposes and tracks key metrics to measure performance and quality, such as:
+     - Average call duration.
+     - QA evaluation scores.
+     - LLM vs. human evaluation agreement rate.
+     - Number of calls handled per agent.
 
-```bash
-yarn create next-app --example https://github.com/vercel-labs/ai-sdk-preview-python-streaming ai-sdk-preview-python-streaming-example
-```
+---
 
-```bash
-pnpm create next-app --example https://github.com/vercel-labs/ai-sdk-preview-python-streaming ai-sdk-preview-python-streaming-example
-```
+## Getting Started
 
-To run the example locally you need to:
+### Prerequisites
 
-1. Sign up for accounts with the AI providers you want to use (e.g., OpenAI, Anthropic).
-2. Obtain API keys for each provider.
-3. Set the required environment variables as shown in the `.env.example` file, but in a new file called `.env`.
-4. `pnpm install` to install the required Node dependencies.
-5. `virtualenv venv` to create a virtual environment.
-6. `source venv/bin/activate` to activate the virtual environment.
-7. `pip install -r requirements.txt` to install the required Python dependencies.
-8. `pnpm dev` to launch the development server.
+- **Node.js** (v20 or later)
+- **Python** (v3.12 or later)
+- **pnpm** (or npm/yarn)
+- **virtualenv** (for Python environment management)
+
+---
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-repo/solum-challenge.git
+   cd solum-challenge
+   ```
+
+2. Set the required environment variables:
+   - Create a `.env.local` file in the root directory for the frontend:
+   - Create a `.env` file in the backend directory for any required backend environment variables.
+
+3. Install frontend dependencies:
+   ```bash
+   pnpm install
+   ```
+
+4. Set up the Python backend:
+   ```bash
+   virtualenv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   ```
+
+---
+
+### Running the Application Locally
+
+1. Start the FastAPI backend:
+   ```bash
+   pnpm fastapi:dev
+   ```
+
+2. Start the Next.js frontend:
+   ```bash
+   pnpm next:dev
+   ```
+
+3. Run both frontend and backend simultaneously:
+   ```bash
+   pnpm dev
+   ```
+
+4. Open your browser and navigate to:
+   ```
+   http://localhost:3000
+   ```
+
+---
+
+### Deployment
+
+1. **Frontend**:
+   - Deploy the Next.js application to [Vercel](https://vercel.com/).
+
+2. **Backend**:
+   - Deploy the FastAPI backend to a cloud provider (e.g., Vercel, AWS, or Heroku).
+   - Ensure all required environment variables are configured.
+
+---
+
+## Key Metrics
+
+The following metrics are tracked to measure performance and quality:
+
+1. **Average Call Duration**:
+   - Tracks the average length of calls to identify trends.
+
+2. **QA Evaluation Scores**:
+   - Measures the quality of calls based on QA feedback.
+
+3. **LLM vs. Human Evaluation Agreement**:
+   - Compares LLM evaluations with human evaluations to assess alignment.
+
+4. **Calls Handled per Agent**:
+   - Tracks the number of calls handled by each agent over time.
+
+5. **Call Resolution Rate**:
+   - Measures the percentage of calls successfully resolved.
+
+---
 
 ## Learn More
 
-To learn more about the AI SDK or Next.js by Vercel, take a look at the following resources:
-
-- [AI SDK Documentation](https://sdk.vercel.ai/docs)
 - [Next.js Documentation](https://nextjs.org/docs)
+- [FastAPI Documentation](https://fastapi.tiangolo.com)
+- [Vercel Documentation](https://vercel.com/docs)
+
+Feel free to contribute or raise issues to improve the project!
