@@ -1,6 +1,5 @@
 from typing import Optional
-from openai import BaseModel
-
+from pydantic import BaseModel
 
 class UpdateCallRequest(BaseModel):
     call_id: str

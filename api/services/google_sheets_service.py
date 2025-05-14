@@ -1,4 +1,3 @@
-import json
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from api.config import Config
@@ -9,9 +8,21 @@ class GoogleSheetsService:
         scope = [
             "https://spreadsheets.google.com/feeds",
             "https://www.googleapis.com/auth/drive",
-        ]
-        # Load the JSON string from the environment variable
-        credentials_dict = json.loads(Config.GOOGLE_CREDENTIALS_JSON)
+        ] 
+
+        credentials_dict = {
+            "type": Config.GOOGLE_CREDENTIALS_TYPE,
+            "project_id": Config.GOOGLE_CREDENTIALS_PROJECT_ID,
+            "private_key_id": Config.GOOGLE_CREDENTIALS_PRIVATE_KEY_ID,
+            "private_key": Config.GOOGLE_CREDENTIALS_PRIVATE_KEY.replace("\\n", "\n"),
+            "client_email": Config.GOOGLE_CREDENTIALS_CLIENT_EMAIL,
+            "client_id": Config.GOOGLE_CREDENTIALS_CLIENT_ID,
+            "auth_uri": Config.GOOGLE_CREDENTIALS_AUTH_URI,
+            "token_uri": Config.GOOGLE_CREDENTIALS_TOKEN_URI,
+            "auth_provider_x509_cert_url": Config.GOOGLE_CREDENTIALS_AUTH_PROVIDER_X509_CERT_URL,
+            "client_x509_cert_url": Config.GOOGLE_CREDENTIALS_CLIENT_X509_CERT_URL,
+            "universe_domain": Config.GOOGLE_CREDENTIALS_UNIVERSE_DOMAIN,
+        }
         creds = ServiceAccountCredentials.from_json_keyfile_dict(
             credentials_dict, scope
         )

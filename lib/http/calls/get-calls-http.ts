@@ -33,11 +33,11 @@ export async function getCalls(
     return { calls: [], newOffset: null, totalCalls: 0 };
   }
 
-  console.log("hello:", process.env.NEXT_PUBLIC_API_URL, process.env.NODE_ENV);
-  const url = new URL('/api/calls');
-  url.searchParams.append('offset', offset.toString());
-  url.searchParams.append('search', search);
-  const response = await fetch(url.toString());
+  const endpoint = `/api/calls?offset=${encodeURIComponent(
+    offset.toString()
+  )}&search=${encodeURIComponent(search)}`;
+
+  const response = await fetch(endpoint);
 
   if (!response.ok) {
     throw new Error(`Failed to fetch calls: ${response.statusText}`);
