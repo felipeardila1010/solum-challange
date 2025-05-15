@@ -12,9 +12,9 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { MoreHorizontal } from 'lucide-react';
 import { TableCell, TableRow } from '@/components/ui/table';
-import { SelectCall } from '@/lib/http/calls/get-calls-http';
+import { SelectCall } from 'app/api/calls/get-calls-http';
 import { RightSidebar } from './right-sidebar';
-import { handleServerSubmit } from '@/lib/http/calls/put-call-http';
+import { handleServerSubmit } from 'app/api/calls/put-call-http';
 
 export function Call({ call }: { call: SelectCall }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

@@ -1,0 +1,8 @@
+.chartContainer {
+  width: 50%; /* Ocupa la mitad del ancho de la pantalla */
+  height: auto; /* Ajusta la altura automáticamente */
+  max-width: 600px; /* Tamaño máximo opcional */
+  margin: 0 auto; /* Centra el gráfico horizontalmente */
+  position: relative; /* Necesario para mantener el gráfico responsivo */
+  aspect-ratio: 1; /* Mantiene una proporción cuadrada */
+}
