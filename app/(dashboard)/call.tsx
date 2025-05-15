@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -12,7 +14,7 @@ import { MoreHorizontal } from 'lucide-react';
 import { TableCell, TableRow } from '@/components/ui/table';
 import { SelectCall } from '@/lib/http/calls/get-calls-http';
 import { RightSidebar } from './right-sidebar';
-import { PutCall, putCall } from '@/lib/http/calls/put-call-http';
+import { handleServerSubmit } from '@/lib/http/calls/put-call-http';
 
 export function Call({ call }: { call: SelectCall }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -29,22 +31,16 @@ export function Call({ call }: { call: SelectCall }) {
     event.preventDefault();
 
     const formData = new FormData(event.target as HTMLFormElement);
-    const updatedData: PutCall = {
-      call_id: call.call_id,
-      qa_check: formData.get("qaCheck") as string,
-      feedback_qa: formData.get("feedbackQa") as string,
-      evaluation: formData.get("evaluation") as string,
-    };
+    formData.append("call_id", call.call_id);
 
     try {
-      const response = await putCall(updatedData);
+      const isOK = await handleServerSubmit(formData);
 
-      if (response.ok) {
+      if (isOK) {
         alert("Changes saved successfully!");
         setIsSidebarOpen(false); // Close the sidebar on success
       } else {
-        const errorData = await response.json();
-        alert(`Failed to save changes: ${errorData.message}`);
+        alert(`Failed to save changes`);
       }
     } catch (error) {
       console.error("Error updating call:", error);

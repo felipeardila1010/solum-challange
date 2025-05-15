@@ -9,6 +9,7 @@ export default async function CallsPage(
     searchParams: Promise<{ q: string; offset: string }>;
   }
 ) {
+  console.log("antes-beforeee:", process.env.BACKEND_HOST);
   const searchParams = await props.searchParams;
   const search = searchParams.q ?? '';
   const offset = searchParams.offset ?? 0;

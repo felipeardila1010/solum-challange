@@ -53,7 +53,7 @@ async def get_calls(
         "newOffset": None,
         "totalCalls": 1
     }
-    
+
 @router.put("/api/calls/{call_id}")
 async def update_call(call_id: str, update_data: UpdateCallRequest):
     """

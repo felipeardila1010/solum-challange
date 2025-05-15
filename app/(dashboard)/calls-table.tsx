@@ -30,6 +30,7 @@ export function CallsTable({
   offset: number;
   totalCalls: number;
 }) {
+  console.log("bad1:", process.env.BACKEND_HOST);
   let router = useRouter();
   let callsPerPage = 5;
 
